@@ -1,1 +1,126 @@
-./docs/index.html
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>P4davan by ihacklog</title>
+
+    <link rel="stylesheet" href="docs/stylesheets/styles.css">
+    <link rel="stylesheet" href="docs/stylesheets/github-light.css">
+    <script src="docs/javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+    <![endif]-->
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">P4davan</h1>
+        <p class="header">Padavan RT-N56U firmware site by HuangYeWuDeng</p>
+
+        <ul>
+          <li class="download"><a class="buttons" id="NEWIFI-D1" href="javascript:void(0);">NEWIFI-D1</a></li>
+          <li class="download"><a class="buttons" id="NEWIFI-Y1" href="javascript:void(0);">NEWIFI-Y1</a></li>
+          <li class="download"><a class="buttons" id="PSG1218-K2" href="javascript:void(0);">PSG1218-K2</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="http://80x86.io">80x86.io</a></p>
+
+
+      </header>
+      <section>
+        <h3>
+<a id="固件特点" class="anchor" href="#%E5%9B%BA%E4%BB%B6%E7%89%B9%E7%82%B9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>固件特点</h3>
+
+<p>1.基于Padavan原版作少量修改. 跟随原版升级.</p>
+
+<p>2.追求稳定，仅加入少量使用频率较高的插件，与的Padavan系统深度集成.</p>
+
+<p>3.支持 在线升级 和 计划任务全自动升级</p>
+
+<h3>
+<a id="功能修改增强" class="anchor" href="#%E5%8A%9F%E8%83%BD%E4%BF%AE%E6%94%B9%E5%A2%9E%E5%BC%BA" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>功能修改增强</h3>
+
+<ol>
+<li><p>完美适配D1, Y1, PSG1218-K2. D1 开启双核四线程，K2开启外置PA+LNA， Y1 开启外置LNA，
+  led灯, 网口, 内置SD卡，U盘自动挂载，内置SMB, ftp, nfs, dlna 媒体服务器, itunes 媒体服务, Transmission 及 Aria2 下载器.</p></li>
+<li><p>集成插件：
+迅雷远程
+adbyby
+SmartVPN
+SS
+kms
+ngrok
+shellinabox</p></li>
+<li><p>增加qos模块支持</p></li>
+<li><p>默认英文UI，增加中文语言可选.(插件没有做中文语言包)</p></li>
+<li><p>集成dnspod, aliyun ddns, pubyun(3322) ddns, oray ddns, dynu ddns</p></li>
+</ol>
+
+<h3>
+<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<h2>
+<a id="固件问题反馈群" class="anchor" href="#%E5%9B%BA%E4%BB%B6%E9%97%AE%E9%A2%98%E5%8F%8D%E9%A6%88%E7%BE%A4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>固件问题反馈群:</h2>
+
+<p>反馈和交流固件问题，大家一起更好地完善固件。
+今后固件问题的讨论以及新版本发布，基本上以群内为主了。</p>
+
+<ol>
+<li>因个人时间有限，不接受特定版本编译的请求。</li>
+<li>扩展界面从最开始便是英文的，暂时没有汉化的打算。
+会用的人低调使用就好。</li>
+<li>祝大家玩得开心。</li>
+</ol>
+
+<p><a href="http://jq.qq.com/?_wv=1027&amp;k=2J5myxG">http://jq.qq.com/?_wv=1027&amp;k=2J5myxG</a></p>
+
+<p>QQ 群号:</p>
+
+<p>93780191</p>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
+  </body>
+
+<script>
+  $(function(){
+    var all_products = new Array("NEWIFI-D1", "NEWIFI-Y1", "PSG1218-K2");
+    var download_fw=function (fw_pid, fw_ver) {
+      var base_url_cd = "https://coding.net/u/c0ding/p/p4davan/git/raw/master";
+      var base_url_gh = "https://github.com/ihacklog/p4davan/raw/master";
+      var base_url = base_url_cd;
+      if (top.window.location.hostname == "p4davan.80x86.io") {
+        base_url = base_url_gh;
+      }
+      var url = base_url + "/down/rom/" + fw_pid + "/" + fw_ver + ".trx";
+      var link=document.createElement('a');
+      link.style.display = "none";
+      document.body.appendChild(link);
+      link.href=url ;
+      link.click();
+    };
+    var d1_ver = '';
+    var y1_ver = '';
+    var k2_ver = '';
+    var get_rom_release=function(product_id) {
+      $.get('release/' + product_id + '.txt', function(version){
+        $btn = $('#'+product_id);
+        $btn.attr('title', version);
+        $btn.bind('click', function(){
+          download_fw(product_id, version);
+        });
+      });
+    }
+    for (i = 0; i < all_products.length; i++) {
+      get_rom_release(all_products[i]);
+    }
+  });
+</script>
+</html>
