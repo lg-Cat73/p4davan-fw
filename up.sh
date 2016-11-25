@@ -9,4 +9,5 @@
 git pull origin master
 git push origin master
 git push coding master:coding-pages
+git push coding master
 echo 'done.'
