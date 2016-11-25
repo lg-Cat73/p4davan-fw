@@ -110,7 +110,7 @@ shellinabox</p></li>
     var y1_ver = '';
     var k2_ver = '';
     var get_rom_release=function(product_id) {
-      $.get('release/' + product_id + '.txt', function(version){
+      $.get('docs/release/' + product_id + '.txt', function(version){
         $btn = $('#'+product_id);
         $btn.attr('title', version);
         $btn.bind('click', function(){
