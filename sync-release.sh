@@ -6,6 +6,6 @@
 # Distributed under terms of the MIT license.
 #
 
-cp -rv ./docs/release/ ../p4davan-page/docs/release/
+cp -v ./docs/release/*.txt ../p4davan-page/docs/release/
 echo 'Done.'
 cd ../p4davan-page && git stn ./ && cd ../p4davan
