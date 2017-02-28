@@ -31,7 +31,7 @@ QQ 群号: 93780191
 (删除/etc/storage/koolproxy之前注意备份你的证书，如果你需要的话）
 ==========================================
 
-20170228-0226 changelog:
+20170228-1323 changelog:
 
 1. ddns bug fix, fix ss 对ddns的影响. (修复最下面的update按钮默认是灰色的bug.修复在ss chnroute环境下，
   获取外网IP的url选择的是国外网站的url时不能正常检测外网ip的bug.)
