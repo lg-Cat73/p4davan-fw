@@ -37,21 +37,18 @@ QQ 群号: 93780191
   获取外网IP的url选择的是国外网站的url时不能正常检测外网ip的bug.)
 
 2. simple-obfs 升级到最新版(2017-02-23) 和 ss 升级到最新版 v3.0.3 (2017-02-27)
+   （新增加防止重放攻击特性)
    https://github.com/shadowsocks/shadowsocks-libev/releases
 
 3. [k2 没有]迅雷不能启动bug fix(下载url错误)
 
-4. koolproxy service: fix certificate check.
+4. ss ui 优化(很多细节优化，看看你能发现否-_-）
 
----------------------------------------------------
-
-20170221-0105 changelog:
-
-1. ss ui 优化(很多细节优化，看看你能发现否-_-），ss 更新到20170220 最新版（新增加防止重放攻击特性)
-
-2. koolproxy 更新到最新的3.3.3, ui 优化（二维码扫码下载证书等等）. 移除Video and User Rules Only选项，新增加
+5. koolproxy 更新到最新的3.3.3, ui 优化（二维码扫码下载证书等等）.
+   移除Video and User Rules Only选项，新增加
    Enable Rules 选项(Static静态网页规则，Video视频网站规则，User用户自定义规则)，勾选相应的规则启用.
    修复Bypass LAN IP（不走koolproxy过滤的内网IP）选项不工作的bug.
+   koolproxy service: fix certificate check.
 
 ---------------------------------------------------
 
