@@ -1,0 +1,143 @@
+============================================================
+███╗   ██╗███████╗██╗    ██╗██╗███████╗██╗      ██████╗  ██╗
+████╗  ██║██╔════╝██║    ██║██║██╔════╝██║      ██╔══██╗███║
+██╔██╗ ██║█████╗  ██║ █╗ ██║██║█████╗  ██║█████╗██║  ██║╚██║
+██║╚██╗██║██╔══╝  ██║███╗██║██║██╔══╝  ██║╚════╝██║  ██║ ██║
+██║ ╚████║███████╗╚███╔███╔╝██║██║     ██║      ██████╔╝ ██║
+╚═╝  ╚═══╝╚══════╝ ╚══╝╚══╝ ╚═╝╚═╝     ╚═╝      ╚═════╝  ╚═╝
+============================================================
+
+固件问题反馈群:
+---------------------------------------------------
+反馈和交流固件问题，大家一起更好地完善固件。
+
+1. 因个人时间有限，不接受特定版本编译的请求。
+2. 扩展界面为英文，暂时没有时间汉化。
+   会用的人低调使用就好。
+3. 祝大家玩得开心。
+
+加群链接：
+http://jq.qq.com/?_wv=1027&k=2J5myxG
+
+QQ 群号: 93780191
+
+[注]：加群后5分钟QQ系统强制禁言.5分钟后方可发言.
+有朋友反馈说无法加群，提示无法生成订单，貌似退出群游客即可顺利加入了.
+---------------------------------------------------
+
+================= 注意！ =================
+20170213以后的固件刷入前先备份storage 
+(系统管理 -> 恢复/导出/上传设置 -> 路由器内部存储[脚本文件] (/etc/storage) ->  导出内部存储内容 -> 保存)
+由于新固件调整了storage的大小(storage changed to 1024KiB), 因此, 
+请勿必在第一次更新或刷20170213及其后更新的固件之前, 
+备份好storage, 刷完新固件后再导入.
+(如果你的固件已经是20170213或比这个更新的固件, 
+可以不用理会)
+==========================================
+
+20170402 changelog:
+
+1. fix koolproxy ui: 修改版本号为3.3.6,  新增加规则更新脚本文件自动恢复功能：
+   如果规则更新脚本内容小于1KB（说明脚本文件出问题了），自动从原固件恢复脚本文件。
+2. ss ui: 新增加$$节点编辑功能, 修复table列数错误导致 - 按钮错位的问题
+（错位这么久了一直没人发现？然后愚人节我发现了）
+3. koolproxy更新脚本更新到1.0.4版，新增加手机端规则：koolproxy_wp.txt（默认未启用） 及 
+ kp 官方的add_rules.txt（默认启用）
+把KP_EXTRA_RULE_CNT=0 的 0 改成 1 ，可以启用 koolproxy_wp.txt 扩展规则.
+同时，我在写这个脚本的时候就考虑了其它规则的更新，
+假如你还有一个规则放在 http://fooo.com/test/kp/other_rules.txt, 
+只需要在 # ------- END EXTRA RULES ------- 前加上：
+
+KP_EXTRA_RULE_1=http://fooo.com/test/kp/other_rules.txt
+
+相应的， KP_EXTRA_RULE_CNT=1 就要变成 KP_EXTRA_RULE_CNT=2 ，
+即这后面的数字是附加规则的数量.
+（http://80x86.io/post/KoolProxy-extension-rule-update-script-improved）
+
+
+20170329 changelog:
+1. 更新padavan源码到官方最新版（2017-03-27）
+2. 更新koolproxy到3.3.6
+	进一步提高协议兼容性。此次更新后应该能解决很多网页一直加载的问题。
+	3.3.5: 提高非标准协议兼容性。待新规则推送后，可以解决网易新闻客户端等问题。
+   cron默认改成启用，如果你刷了之前的固件，记得把 #0 */12 * * *     /sbin/restart_koolproxy 之前的#号去除。
+3. adbyby: 重启后自动清理data目录下的*.bak文件，解决部分用户由于adbyby备份的文件占用过多空间，导致storage不够用的问题。
+4. ss 部分名称改成：Sh4d0ws0cks , 顶部的按钮名改成：$$
+
+
+20170321-2314 changelog:
+
+1. ss-libev 升级到 3.0.5， simple-obfs 升级到0.0.3
+
+2. koolproxy: 鉴于kp的规则更新地址一直不稳定，变动频繁，
+   现将kp规则更新脚本直接放到了storage (/etc/storage/koolproxy_rules_update.sh)
+   同时允许大家在UI界面直接更新这个脚本.(如果把这个脚本搞坏了，不用担心，只需要删除这个文件，
+   并 restart_koolproxy 重启kp即会恢复出厂脚本.
+
+3. ddns: 或许修复了dnspod 时不时无法正常更新ip的问题（需要大家测试反馈)
+
+4. 修复 koolproxy 脚本无法保存的bug.
+
+
+
+20170312 changelog:
+
+1. koolproxy ui: use image qrcode, remove View KoolProxy Log button
+
+2. client status page: use 51240.com api to query mac vendor.
+   (ieee.org too many HTTP ERROR 500)
+
+20170311 changelog:
+
+1. shadowsocks-libev: upgrade to 20170311， simple-obfs upgrade to v0.0.3
+
+2. koolproxy: upgrade to 3.3.4， ui optimized: 
+   do not allow to download cert while kp is restarting.
+
+3. ngrok-c: upgrade to 1.41-(2017/01/09) 修复一个网络不好，可能导致的内存泄漏问题
+
+4. footer copyright fix: 2016 =》2017
+
+5. inadyn: disable Bypass shadowsocks tunnel
+
+6. padavan code: sync to 195eba6 (https://bitbucket.org/padavan/rt-n56u/commits/all)
+
+20170228 changelog:
+
+1. ddns bug fix, fix ss 对ddns的影响. (修复最下面的update按钮默认是灰色的bug.修复在ss chnroute环境下，
+  获取外网IP的url选择的是国外网站的url时不能正常检测外网ip的bug.)
+
+2. simple-obfs 升级到最新版(2017-02-23) 和 ss 升级到最新版 v3.0.3 (2017-02-27)
+   （新增加防止重放攻击特性)
+   https://github.com/shadowsocks/shadowsocks-libev/releases
+
+3. [k2 没有]迅雷不能启动bug fix(下载url错误)
+
+4. ss ui 优化(很多细节优化，看看你能发现否-_-）
+
+5. koolproxy 更新到最新的3.3.3, ui 优化（二维码扫码下载证书等等）.
+   移除Video and User Rules Only选项，新增加
+   Enable Rules 选项(Static静态网页规则，Video视频网站规则，User用户自定义规则)，勾选相应的规则启用.
+   修复Bypass LAN IP（不走koolproxy过滤的内网IP）选项不工作的bug.
+   koolproxy service: fix certificate check.
+
+
+
+20170221 changelog:
+1. ss ui 优化(很多细节优化，看看你能发现否-_-），ss 更新到20170220 最新版（新增加防止重放攻击特性)
+2. koolproxy 更新到最新的3.3.3, ui 优化（二维码扫码下载证书等等）. 移除Video and User Rules Only选项，新增加
+   Enable Rules 选项(Static静态网页规则，Video视频网站规则，User用户自定义规则)，勾选相应的规则启用.
+   修复Bypass LAN IP（不走koolproxy过滤的内网IP）选项不工作的bug.
+
+--------------------------------------------------------------------
+   ___      __             ___      __              _            
+  ( _ )    /  \   __ __   ( _ )    / /             (_)     ___   
+  / _ \   | () |  \ \ /   / _ \   / _ \     _      | |    / _ \  
+  \___/   _\__/   /_\_\   \___/   \___/   _(_)_   _|_|_   \___/  
+_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""| 
+"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'                                                                    
+--------------------------------------------------------------------
+
+--EOF
+
+
