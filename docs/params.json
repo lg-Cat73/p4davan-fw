@@ -1,6 +1,0 @@
-{
-  "name": "P4davan",
-  "tagline": "Padavan RT-N56U firmware site by HuangYeWuDeng",
-  "body": "### 固件特点\r\n\r\n1.基于Padavan原版作少量修改. 跟随原版升级.\r\n\r\n2.追求稳定，仅加入少量使用频率较高的插件，与的Padavan系统深度集成.\r\n\r\n3.支持 在线升级 和 计划任务全自动升级\r\n\r\n### 功能修改增强\r\n\r\n1. 完美适配D1. 开启双核四线程，led灯, 网口, 内置SD卡，U盘自动挂载\r\n内置SMB, ftp, nfs, dlna 媒体服务器, itunes 媒体服务, Transmission 及 Aria2 下载器.\r\n\r\n2. 集成插件：\r\n迅雷远程\r\nadbyby\r\nSmartVPN\r\nSS\r\nkms\r\nngrok\r\nshellinabox\r\n\r\n3. 增加qos模块支持\r\n\r\n4. 默认英文UI，增加中文语言可选.(插件没有做中文语言包)\r\n\r\n### Support or Contact\r\n固件问题反馈群:\r\n----------------------------------------------\r\n反馈和交流固件问题，大家一起更好地完善固件。\r\n今后固件问题的讨论以及新版本发布，基本上以群内为主了。\r\n\r\n1. 因个人时间有限，不接受特定版本编译的请求。\r\n2. 扩展界面是有意设置为英文的，暂时没有汉化的打算。\r\n   会用的人低调使用就好。\r\n3. 祝大家玩得开心。\r\n\r\nhttp://jq.qq.com/?_wv=1027&k=2J5myxG\r\n\r\nQQ 群号:\r\n\r\n93780191",
-  "note": "Don't delete this file! It's used internally to help with page regeneration."
-}
